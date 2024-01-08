@@ -3,7 +3,7 @@ const continent = 'Europe';
 let population = 10;
 console.log(country);
 console.log(continent);
-cpnsole.log(population);
+console.log(population);
 
 const isIsland = false;
 let language;
@@ -14,19 +14,14 @@ console.log(typeof country);
 console.log(typeof language);
 
 language = 'portuguese';
-isIsland = true;
+// isIsland = true;
 
 console.log(population / 2);
 population++;
 console.log(population);
-console(population > 6);
+console.log(population > 6);
 console.log(population < 33);
 
-const description1 = country + 'is in' + continent + ', and its' + population + 'million people speak' + language; 
-
-console.log(description);
-
-const description = `${country} is in ${continent}, and its ${population} million people speak ${language}`;
 
 //Code Challenge #1 
 
@@ -45,3 +40,22 @@ console.log(BMIMark, BMIJohn);
 
 const markHigherBMI = BMIMark > BMIJohn;
 console.log(markHigherBMI);
+
+//Code challenge #1
+
+const description1 = country + 'is in' + continent + ', and its' + population + 'million people speak' + language; 
+
+console.log(description1);
+
+const description = `${country} is in ${continent}, and its ${population} million people speak ${language}`;
+
+console.log(`String
+from
+multiple lines`);
+
+if(country > 33) {
+    console.log(`${country}'s population is above average`);
+} else {
+    console.log(`${country}'s population is ${33 - population} million below average.`)
+}
+
