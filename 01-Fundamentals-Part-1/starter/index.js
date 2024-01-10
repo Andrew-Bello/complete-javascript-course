@@ -13,7 +13,7 @@ console.log(typeof population);
 console.log(typeof country);
 console.log(typeof language);
 
-language = 'english';
+language = 'mandarin';
 // isIsland = true;
 
 console.log(population / 2);
@@ -152,3 +152,70 @@ if (scoreDolphins > scoreKoalas) {
     console.log('Both win the trophy')
 }
 //Code challenge #3 Section 
+
+const day = 'monday';
+
+if (day === 'monday') {
+    console.log('Plan course structure');
+    console.log('Go to coding meetup');
+} else if (day === 'tuesday') {
+    console.log('prepare theory videos');
+} else if (day === 'wednesday' || day === 'thursday') {
+    console.log('Write code examples');
+} else if (day === 'friday') {
+    console.log('Record videos')
+} else if (day === 'saturday' || day === 'sunday') {
+    console.log('Enjoy the weekend :D')
+} else {
+    console.log('Not a valid day!')
+}
+
+switch (language) {
+    case 'chinese':
+    case 'mandarin':
+        console.log('MOST number of native speakers');
+        break;
+    case 'spanish':
+        console.log('2nd place in  number of native speakers')
+        break;
+    case 'english':
+        console.log('3rd place');
+        break;
+    case 'hindi':
+        console.log('Number 4');
+        break;
+    case 'arabic':
+        console.log('5th most spoken language');
+        break;
+    default: 
+        console.log('Great language too :D');
+}
+
+//Statements vs Expressions
+//Expressions produce a value, so 3 + 4 will produce a value in JavaScript.
+//Statements on the other hand are actions we want the program to execute.
+//Template literals can only hold expressions
+
+//Ternary Operator
+//ternary operators are actually expressions 
+const ageOfPerson = 18;
+
+const drink = ageOfPerson >= 18 ? 'wine' : 'water';
+
+console.log(drink);
+
+// Because ternary operator is an expression that means you can slot them inside ternary operators.
+
+console.log(`I like to drink ${ageOfPerson >= 18 ? 'wine' : 'water'}.`)
+
+//Code challenge #4 section
+
+// If the tip is between 50 and 300 then tips will be 15% else the it'll be 20%
+
+const tip = bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.20;
+console.log(tip)
+
+
+console.log(`The bill was ${bill}, the tip was ${tip}, and the total value ${bill + tip}.`)
+
+//Code challenge #4 section
