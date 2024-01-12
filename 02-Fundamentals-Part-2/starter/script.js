@@ -93,5 +93,23 @@ const uk3 = percentageOfWorld1(900);
 
 console.log(china3, nigeria3, uk3);
 
-//Functions calling other functions.
+//Functions calling other functions
 
+const describePopulation = function(country, population) {
+    return `${country} has ${population} million people, which is about ${percentageOfWorld1(population)}% of the world.`
+}
+
+console.log(describePopulation('China', 1441));
+console.log(describePopulation('Nigeria', 500));
+console.log(describePopulation('UK', 90));
+
+//If you are taking in a number as a variable for a function or block it's best practice to return back a number and visa versa.
+
+//Return statements exit functions immediately. If code is placed underneath the return statement it will not be executed. 
+
+const helloWorld = function() {
+    return 'Hello World';
+    console.log(-1); // This line's opacity is low on vscode, probably meaning it will not execute.
+}
+
+console.log(helloWorld());
