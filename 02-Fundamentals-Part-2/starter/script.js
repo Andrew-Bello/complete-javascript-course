@@ -6,7 +6,7 @@
 // if(passTest) hasDriverLicense = true;
 // if(hasDriversLicense) console.log('I can drive!');
 
-//Functions
+//FUNCTIONS
 function logger() {
     console.log('My name is Andrew');
 }
@@ -26,7 +26,7 @@ console.log(a);
 console.log(b);
 console.log(c);
 
-//Function Declarations vs Expressions
+//FUNCTION DECLARATIONS VS EXPRESSIONS
 //Parameter is the place holder in the function and the argument is the actual value we use to fill in the place holder.
 
 //This is a function declaration.
@@ -69,7 +69,7 @@ const uk2 = percentageOfWorld1(900);
 
 console.log(china2, nigeria2, uk2);
 
-//Arrow Functions
+//ARROW FUNCTIONS
 
 const calcAge3 = birthYear => 2037 - birthYear;
 const age3 = calcAge3;
@@ -93,7 +93,7 @@ const uk3 = percentageOfWorld1(900);
 
 console.log(china3, nigeria3, uk3);
 
-//Functions calling other functions
+//FUNCTIONS CALLING OTHER FUNCTIONS
 
 const describePopulation = function(country, population) {
     return `${country} has ${population} million people, which is about ${percentageOfWorld1(population)}% of the world.`
@@ -114,12 +114,12 @@ const helloWorld = function() {
 
 console.log(helloWorld());
 
-//Code challenge #1 section
+//CODE CHALLENGE #1 SECTION
 
 const calcAverage = (scoreA, scoreB, scoreC) => (scoreA + scoreB + scoreC) / 3;
 
-const scoreDolphins = calcAverage(85, 54, 41);
-const scoreKoalas = calcAverage(23, 34, 27);
+let scoreDolphins = calcAverage(85, 54, 41);
+let scoreKoalas = calcAverage(23, 34, 27);
 
 function checkWinner(avgDolphins, avgKoalas) {
     if(avgDolphins >= 2 * avgKoalas) {
@@ -133,5 +133,30 @@ function checkWinner(avgDolphins, avgKoalas) {
 
 checkWinner(scoreDolphins, scoreKoalas);
 
-//Code challenge #1 section
+//Make the score variables let instead of const so you can reassign them 
+
+//CODE CHALLENGE #1 SECTION
+
+// INTRODUCTION TO ARRAYS
+
+const friends = ['Will', 'Suzie', 'Jamal'];
+
+//If you always want to get the last element of an array, then do this...
+
+console.log(friends[friends.length - 1]);
+
+friends[2] = 'Ivan';
+console.log(friends);
+
+//Arrays are not primitive values, which means even when defined with const you can still change the values in them, however you cannot change the entire array, whether it be a value or another array.
+
+//friends = 'Chibs'; This will not work.
+
+const populations = [55, 213, 32, 125]; 
+
+console.log(populations.length === 4);
+
+const percentages = [percentageOfWorld1(populations[0]), percentageOfWorld1(populations[1]), percentageOfWorld1(populations[2]), percentageOfWorld1(populations[populations.length - 1])];
+
+console.log(percentages);
 
