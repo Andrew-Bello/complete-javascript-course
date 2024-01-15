@@ -156,7 +156,73 @@ const populations = [55, 213, 32, 125];
 
 console.log(populations.length === 4);
 
-const percentages = [percentageOfWorld1(populations[0]), percentageOfWorld1(populations[1]), percentageOfWorld1(populations[2]), percentageOfWorld1(populations[populations.length - 1])];
+const percentages = [percentageOfWorld1(populations[0]), 
+percentageOfWorld1(populations[1]), 
+percentageOfWorld1(populations[2]), 
+percentageOfWorld1(populations[populations.length - 1])];
 
 console.log(percentages);
+
+//BASIC ARRAY OPERATIONS (METHODS).
+
+// Add Elements
+
+//.push method adds elements to the end of an array. It also gives the value of the new length when the method is applied to a variable. 
+
+//.unshift method adds elements to the beginning of an array. It also gives the value of the new length when applied to a variable. 
+
+//Remove Elements.
+
+//.pop removes the last element of an array. This returns the removed array element.
+//.shift removes the first element of an array. This also return the removed element. 
+
+//.indexOf returns the idex of which the element is located. If you put in a values tht doesn't exist in the array, it will return -1.
+//.includes This will return a boolean if an element is or isn't in an array. This method uses strict equality. 
+
+const neighbours = ['Ghana', 'Benin', 'Togo'];
+
+neighbours.push('Utopia');
+neighbours.pop();
+
+if(!neighbours.includes('Germany')) {
+    console.log('Probably not a central European country :D')
+}
+
+neighbours[neighbours.indexOf('Benin')] = 'Republic of Benin';
+
+console.log(neighbours);
+
+//CODE CHALLENGE #2 
+function calcTip(bill) {
+    return bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.20;
+}
+
+
+const bills = [125, 555, 44];
+const tips = [calcTip(bills[0]), calcTip(bills[1]), calcTip(bills[2])];
+console.log(tips);
+
+const totals = [bills[0] + tips[0], bills[1] + tips[1], bills[2] + tips[2]];
+console.log(totals); 
+
+//Also this is what I came up with. 
+
+// function calcTip(bill) {
+//     const tip = bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.20;
+//     return tips.push(tip)
+// }
+
+
+// const bills = [125, 555, 44];
+// const tips = [];
+// calcTip(bills[0])
+// calcTip(bills[1])
+// calcTip(bills[2])
+// console.log(tips);
+
+// const totals = [bills[0] + tips[0], bills[1] + tips[1], bills[2] + tips[2]];
+// console.log(totals);
+//CODE CHALLENGE #2
+
+//INTRODUCTION TO OBJECTS
 
