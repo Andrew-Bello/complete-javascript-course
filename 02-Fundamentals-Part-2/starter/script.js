@@ -314,3 +314,107 @@ if(john.calcBMI() > mark.calcBMI()) {
 };
 //CODE CHALLENGE #3 SECTION
 
+//ITERATION: THE LOOP
+
+// for(let i = 1; i <= 50; i++) {
+//     console.log(`Voter number ${i} is currently voting`)
+// };
+
+//LOOPING ARRAYS. BREAKING AND CONTINUING
+
+const jonasArray = ['Jonas', 
+'Schmedtmann', 
+2037 - 1991, 
+'teacher', 
+['Michael', 'Peter', 'Steven'],
+true
+];
+
+const types = []; 
+
+for(let i = 0; i < jonasArray.length;i++) {
+    // Reading from Jonas array
+    console.log(jonasArray[i], typeof jonasArray[i]);
+
+    //Filling types array
+    // types[i] = typeof jonasArray[i];
+    types.push(typeof jonasArray[i]);
+}
+
+//Creating a new Array 
+
+console.log(types)
+
+const years = [1991, 2007, 1969, 2020]; 
+const ages = [];
+
+for(let i = 0; i < years.length; i++) {
+    ages.push(2037 - years[i]);
+}
+
+console.log(ages);
+
+//continue & break
+
+//Continue is used to exit the current iteration of the loop an move to next one.   
+
+//Break is used to exit the entire loop - Remember how we use it for switch statements
+
+const greetings = ['Hello', 'Good Morning', 'Hi', 200494, ['Bonjour', 'E Kale', 'Konnichiwa'], 'Yo!']
+
+for(let i = 0; i < greetings.length; i++) {
+    if(typeof greetings[i] !== 'string') break; // Continue ... Interchange to see the results.
+    console.log(greetings[i], typeof greetings[i]);
+}
+
+const percentages2 =[]
+
+for(let i = 0; i < populations.length; i++) {
+    percentages2.push(percentageOfWorld1(populations[i]));
+}
+
+console.log(percentages2);
+
+//LOOPING BACKWARDS AND LOOPS IN LOOPS
+
+for(let i = jonasArray.length - 1; i >= 0; i--) {
+    console.log(i, jonasArray[i]);
+}
+
+for (let exercise = 1; exercise < 4; exercise++) {
+    console.log(`---Starting exercise ${exercise}`);
+    for (let rep = 1; rep < 6; rep++) {
+        console.log(`Exercise ${exercise}: Lifting weight repetition ${rep}`);
+    }
+}
+
+const listOfNeighbours = [['Canada', 'Mexico'], ['Spain'], ['Norway', 'Sweden', 'Russia']];
+
+for(let i = 0; i < listOfNeighbours.length; i++) 
+    for(let j = 0; j < listOfNeighbours[i].length; j++) 
+        console.log(`Neighbour: ${listOfNeighbours[i][j]}`);
+    
+//THE WHILE LOOP
+let rep = 1;
+while (rep <= 10) {
+    console.log(`WHILE: Lifing weights repetition ${rep}`)
+    rep++;
+}
+
+let dice = Math.trunc(Math.random() * 6) + 1;
+
+ while (dice !== 6) {
+    console.log(`You rolled a ${dice}`);
+    dice = Math.trunc(Math.random() * 6) + 1;
+    if(dice === 6) console.log(`You rolled a ${dice}, the loop has ended`);
+ }
+
+const percentages3 = [];
+let pop = 0;
+
+while(pop < populations.length){
+    percentages3.push(percentageOfWorld1(populations[pop]))
+    pop++;
+}
+
+console.log(percentages3);
