@@ -418,3 +418,30 @@ while(pop < populations.length){
 }
 
 console.log(percentages3);
+
+//CODE CHALLENGE #4 SECTION
+const newBills = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
+
+const newTips = []; 
+const newTotals = [];
+
+for (let i = 0; i < newBills.length; i++) {
+    const tip = calcTip(newBills[i]);
+    newTips.push(tip);
+    newTotals.push(newBills[i] + newTips[i])
+}
+
+console.log(newTips);
+console.log(newTotals);
+
+const newCalcAverage = function(arr) {
+    let sum = 0;
+    for(let i = 0; i < arr.length; i++) {
+      sum += arr[i] 
+    }
+    const average = sum/ arr.length;
+    return average;
+}
+
+console.log(newCalcAverage(newTotals));
+//CODE CHALLENGE #4 SECTION
