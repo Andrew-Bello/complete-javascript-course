@@ -98,7 +98,40 @@ const measureKelvin = function () {
 
 console.log(measureKelvin());
 
-const printForecast = function (arr) {};
+//MY SOLUTION
+const data1 = [17, 21, 23];
+const data2 = [12, 5, -5, 0, 4];
+
+const printForecast = function (arr) {
+  let message = '... ';
+  for (let i = 0; i < arr.length; i++) {
+    message += `${arr[i]} degrees celsius in ${[i + 1]} days ... `;
+  }
+  return message;
+};
+
+console.log(printForecast(data2));
 
 // Problem 1
 // String length based on the array length
+//  add dots to string.
+
+// 1) Understanding the problem
+// - Array transformed to string, separated by ...
+// - What is the X days? Index + 1
+
+// 2) Breaking into sub problems
+// - Transform array in to string
+// - Transform each element to string with C
+//- String need to contain day (index + 1)
+// - Add ... between elements and start and end of string
+
+const printForecastNew = function (arr) {
+  let str = '';
+  for (let i = 0; i < arr.length; i++) {
+    str += `${arr[i]} degrees Celsius in ${i + 1} days ... `;
+  }
+  console.log('...' + str);
+};
+
+printForecastNew(data1);
