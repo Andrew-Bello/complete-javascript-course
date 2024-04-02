@@ -30,13 +30,36 @@ const restaurant = {
       close: 24,
     },
   },
+
+  orderDelivery: function ({
+    starterIndex = 1,
+    mainIndex = 0,
+    time = '20:00',
+    address,
+  }) {
+    console.log(
+      `Order received ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}.`
+    );
+  },
 };
+
+restaurant.orderDelivery({
+  time: '23:30',
+  address: 'Via del Sole, 21',
+  mainIndex: 2,
+  starterIndex: 2,
+});
+
+restaurant.orderDelivery({
+  address: 'Via del Sole, 21',
+  starterIndex: 1,
+});
 
 const arr = [2, 3, 4];
 
-const a = arr[0];
-const b = arr[1];
-const c = arr[2];
+// const a = arr[0];
+// const b = arr[1];
+// const c = arr[2];
 
 const [x, y, z] = arr;
 
@@ -55,7 +78,7 @@ console.log(main, secondary);
 
 console.log(main, secondary);
 
-//Receive 2 return values from a fucntion
+//Receive 2 return values from a funcntion
 const [starter, mainCourse] = restaurant.order(2, 0);
 console.log(starter, mainCourse);
 
@@ -299,20 +322,84 @@ const books = [
   },
 ];
 
-const [firstBook, secondBook] = books;
-console.log(firstBook, secondBook);
+// const [firstBook, secondBook] = books;
+// console.log(firstBook, secondBook);
 
-const [, , thirdBook] = books;
-console.log(thirdBook);
+// const [, , thirdBook] = books;
+// console.log(thirdBook);
 
-const ratings = [
-  ['rating', 4.19],
-  ['ratingsCount', 144584],
-];
-const [[, rating], [, ratingsCount]] = ratings;
-console.log(rating, ratingsCount);
+// const ratings = [
+//   ['rating', 4.19],
+//   ['ratingsCount', 144584],
+// ];
+// const [[, rating], [, ratingsCount]] = ratings;
+// console.log(rating, ratingsCount);
 
-const ratingStars = [63405, 1808];
-const [fiveStarRatings = 0, oneStarRatings = 0, threeStarRatings = 0] =
-  ratingStars;
-console.log(fiveStarRatings, oneStarRatings, threeStarRatings);
+// const ratingStars = [63405, 1808];
+// const [fiveStarRatings = 0, oneStarRatings = 0, threeStarRatings = 0] =
+//   ratingStars;
+// console.log(fiveStarRatings, oneStarRatings, threeStarRatings);
+
+// DESTRUCTURING OBJECTS
+
+const { name, openingHours, categories } = restaurant;
+console.log(name, openingHours, categories);
+
+const {
+  name: restaurantName,
+  openingHours: hours,
+  categories: tags,
+} = restaurant;
+console.log(restaurantName, hours, tags);
+
+const { menu = [], starterMenu: starters = [] } = restaurant; // [] sets the variable to a default value.
+
+console.log(menu, starters);
+
+// MUTATING VARIABLES
+
+let a = 111;
+let b = 999;
+const obj = { a: 23, b: 7, c: 14 };
+
+({ a, b } = obj);
+console.log(a, b);
+
+// NESTED OBJECTS
+
+const {
+  fri: { open: o, close: c },
+} = openingHours;
+console.log(o, c);
+
+// ASSIGNMENT 2:
+
+const { title, author, ISBN } = books[0];
+
+const { keywords: newTags } = books[0];
+
+const { language, programmingLanguage = 'unknown' } = books[6];
+
+let bookTitle = 'unknown';
+let bookAuthor = 'unknown';
+
+({ bookTitle = title, bookAuthor = author } = books[0]);
+
+const {
+  thirdParty: {
+    goodreads: { rating: bookRating },
+  },
+} = books[0];
+console.log(bookRating);
+
+function printBookInfo({ title, author, year = 'year unknown' }) {
+  console.log(`${title} by ${author}, ${year}`);
+}
+
+printBookInfo({
+  title: 'Algorithms',
+  author: 'Robert Sedgewick',
+  year: '2011',
+});
+
+printBookInfo({ title: 'Algorithms', author: 'Robert Sedgewick' });
