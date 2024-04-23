@@ -41,6 +41,22 @@ const restaurant = {
       `Order received ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}.`
     );
   },
+
+  orderPasta: function (ing1, ing2, ing3) {
+    console.log(
+      `Here is your delicious past with ${ing1}, ${ing2}, and ${ing3}`
+    );
+  },
+
+  orderPizza: function (mainIngredient, ...otherIngredients) {
+    if (otherIngredients.includes('Vegan cheese')) {
+      console.log(
+        'Sorry we have run out of Vegan Cheese, we cannot process this order'
+      );
+    } else {
+      console.log('Order Confirmed');
+    }
+  },
 };
 
 restaurant.orderDelivery({
@@ -403,3 +419,142 @@ printBookInfo({
 });
 
 printBookInfo({ title: 'Algorithms', author: 'Robert Sedgewick' });
+
+// SPREAD OPERATOR (...)
+
+const numArr = [7, 8, 9];
+const badNewArr = [1, 2, numArr[0], numArr[1], numArr[2]];
+console.log(badNewArr);
+
+const newArr = [1, 2, ...numArr];
+console.log(newArr);
+
+console.log(...newArr);
+
+const newMenu = [...restaurant.mainMenu, 'Gnocci'];
+console.log(newMenu, restaurant.mainMenu);
+
+// Copy array
+
+const mainMenuCopy = [...restaurant.mainMenu];
+
+//Join two arrays
+
+//Contains main menu and starter menu
+
+const brandNewMenu = [...restaurant.mainMenu, ...restaurant.starterMenu];
+console.log(brandNewMenu);
+
+// Iterables: arrays, strings, maps, sets. NOT objects
+
+const str = 'Jonas';
+const letters = [...str, ' ', 'S.'];
+console.log(letters);
+console.log(...str);
+
+// const ingredients = [
+//   prompt("Let's make pasta! Ingredient 1"),
+//   prompt('Ingredient 2?'),
+//   prompt('Ingredient 3?'),
+// ];
+
+// console.log(ingredients);
+
+// restaurant.orderPasta(...ingredients);
+
+// Objects
+const newRestaurant = { foundedIn: 1996, ...restaurant, founder: 'Andrew' };
+console.log(newRestaurant);
+
+const restaurantCopy = { ...restaurant };
+restaurantCopy.name = 'Smint Org';
+console.log(restaurantCopy.name);
+console.log(restaurant.name);
+
+//Assignment 3
+
+const bookAuthors = [...books[0].author, ...books[1].author];
+console.log(bookAuthors);
+
+function spellWord(str) {
+  console.log(...str);
+}
+
+spellWord('JavaScript');
+
+//REST OPERATOR
+
+// 1) Destructuring
+
+//Used to pack elements into an array
+//Opposite of a spread operator
+
+const spreadArr = [1, 2, ...[3, 4]];
+
+const [rA, rB, ...others] = [1, 2, 3, 4, 5];
+console.log(others);
+
+const [pizza, , risotto, ...otherFood] = [
+  ...restaurant.mainMenu,
+  ...restaurant.starterMenu,
+];
+console.log(pizza, risotto, otherFood);
+
+//Objects
+
+const { sat, ...weekdays } = restaurant.openingHours;
+console.log(weekdays);
+
+// 2) Functions
+const add = function (...numbers) {
+  let sum = 0;
+  for (let i = 0; i < numbers.length; i++) {
+    sum += numbers[i];
+  }
+  return sum;
+};
+
+console.log(add(2, 3));
+console.log(add(5, 3, 7, 2));
+console.log(add(8, 2, 5, 3, 2, 1, 4));
+
+const v = [23, 5, 7];
+console.log(add(...v));
+
+restaurant.orderPizza('Beef', 'Mushroom', 'Cheddar');
+
+//ASSIGNMENT 4
+
+//4.1
+console.log(books[0].keywords);
+
+const [mainKeywords, ...rest] = books[0].keywords;
+console.log(mainKeywords, rest);
+
+//4.2
+const { publisher: bookPublisher, ...restOfBook } = books[1];
+console.log(bookPublisher, restOfBook);
+
+//4.3
+function printBookAuthorsCount(title, ...authors) {
+  return `The book ${title} has ${author.length} authors.`;
+}
+console.log(
+  printBookAuthorsCount('Algorithms', 'Robert Sedgewick', 'Kevin Wayne')
+);
+
+//SHORT CIRCUITING (&& AND ||)
+
+// Use ANY data type, return Any data type, short-circuiting
+
+console.log(3 || 'Jonas');
+console.log('' || 'Jonas');
+console.log(true || 0);
+console.log(undefined || null || 0);
+
+restaurant.numGuests = 23;
+const guest1 = restaurant.numGuests ? restaurant.numGuests : 10;
+console.log(guest1);
+
+const guest2 = restaurant.numGuests || 10;
+console.log(guest2);
