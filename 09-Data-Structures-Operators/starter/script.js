@@ -546,15 +546,72 @@ console.log(
 //SHORT CIRCUITING (&& AND ||)
 
 // Use ANY data type, return Any data type, short-circuiting
+console.log('---OR---');
 
-console.log(3 || 'Jonas');
-console.log('' || 'Jonas');
-console.log(true || 0);
-console.log(undefined || null || 0);
+console.log(3 || 'Jonas'); // 3
+console.log('' || 'Jonas'); // Jonas
+console.log(true || 0); // true
+console.log(undefined || null || 0); // 0
 
-restaurant.numGuests = 23;
+restaurant.numGuests = 0;
 const guest1 = restaurant.numGuests ? restaurant.numGuests : 10;
-console.log(guest1);
+console.log(guest1); // 23
 
 const guest2 = restaurant.numGuests || 10;
-console.log(guest2);
+console.log(guest2); //23
+
+console.log('---AND---');
+
+console.log(0 && 'Andrew'); // 0
+console.log(7 && 'Andrew'); // Andrew
+
+//And operator returns the first falsy value or the last value if all of them are truthy, whereas Or operator returns the first truthy value it can obtain.
+
+console.log('Hello' && 23 && null && 'Andrew'); //null
+
+//Real world example
+if (restaurant.orderPizza) {
+  restaurant.orderPizza('mushroom', 'spinach');
+}
+
+restaurant.orderPizza && restaurant.orderPizza('mushroom', 'spinach');
+
+//ASSIGNMENT 5
+
+//5.1
+const hasExamplesInJava = obj =>
+  obj.programmingLanguage.toLowerCase() === 'java' ||
+  'no data available' ||
+  true;
+
+console.log(hasExamplesInJava(books[0]));
+
+//5.2
+
+function checkOnlineContent(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    arr[i].onlineContent &&
+      console.log(`${arr[i].title} provides online content.`);
+  }
+}
+
+checkOnlineContent(books);
+
+// NULLISH COALESCING OPERATOR
+
+const guestCorrect = restaurant.numGuests ?? 10;
+
+console.log(guestCorrect);
+
+// ASSIGNMENT 6
+
+// 6.1
+
+function checkFalseOnlineContent(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    arr[i].onlineContent ??
+      console.log(`${arr[i].title} provides no date about its online content.`);
+  }
+}
+
+checkFalseOnlineContent(books);
