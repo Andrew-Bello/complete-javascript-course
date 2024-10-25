@@ -601,7 +601,7 @@ checkOnlineContent(books);
 
 const guestCorrect = restaurant.numGuests ?? 10;
 
-console.log(guestCorrect);
+console.log(guestCorrect); // 0
 
 // ASSIGNMENT 6
 
@@ -615,3 +615,71 @@ function checkFalseOnlineContent(arr) {
 }
 
 checkFalseOnlineContent(books);
+
+// LOGICAL ASSIGNMENT OPERATORS
+
+const rest1 = {
+  name: 'Capri',
+  numGuests: 0,
+};
+
+const rest2 = {
+  name: 'La Piazza',
+  owner: 'Giovanni Rossi',
+};
+
+// Or assignment operator
+// rest1.numGuests = rest1.numGuests || 10;
+// rest2.numGuests = rest2.numGuests || 10;
+
+// console.log(rest1.numGuests); //20
+// console.log(rest2.numGuests); //10
+
+// rest1.numGuests ||= 10;
+// rest2.numGuests ||= 10;
+
+rest1.numGuests ??= 10;
+rest2.numGuests ??= 10;
+
+console.log(rest1.numGuests); //20
+console.log(rest2.numGuests); //10
+
+rest1.owner &&= 'anon';
+rest2.owner &&= 'anon';
+
+console.log(rest1);
+console.log(rest2.owner);
+
+// ASSIGNMENT 7
+
+// 7.1
+
+function checkEdition(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    console.log((arr[i].edition ||= 1));
+  }
+}
+
+checkEdition(books);
+
+function checkRating(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    if (
+      arr[i].highlighted === true &&
+      books[i].thirdParty.goodreads.rating < 4.2
+    ) {
+      books[i].highlighted &&= false;
+    }
+    console.log(books[i].highlighted);
+  }
+}
+
+function checkRatings2(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    arr[i].highlighted &&= !(arr[i].thirdParty.goodreads.rating < 4.2);
+  }
+  return books;
+}
+
+checkRating(books);
+checkRatings2(books);
